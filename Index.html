@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUFFALO CYBER SECURITY</title>
+    <link rel="icon" href="assets/2.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&family=Orbitron:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        /* Reset default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html{
+            scroll-behavior: smooth;
+        }
+
+
+
+
+        /* Body styling without background image for general content */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5; /* Light background for body */
+            color: #333;
+            min-height: 100vh;
+        }
+
+        /* Navbar styling with gradient background */
+        .navbar {
+            background: linear-gradient(to bottom, #0033cc, #0066ff);
+            padding: 10px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for separation */
+            /* Removed border-radius for straight corners */
+        }
+
+        /* Navbar content alignment */
+        .navbar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Logo and text container */
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Logo styling */
+        .logo img {
+            height: 80px;
+            transition: transform 0.3s ease;
+        }
+
+        /* Hover effect on the logo */
+        .logo img:hover {
+            transform: scale(1.05); /* Slight scale-up on hover */
+        }
+
+        /* Text next to the logo */
+        .logo-text {
+            color: white; /* Tech color */
+            font-family: 'Roboto Mono', monospace; /* Techy font */
+            font-size: 20px; /* Prominent text size */
+            font-weight: 500;
+            margin-left: 20px;
+        }
+
+        /* Nav links styling */
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 40px; /* Increased spacing between links */
+        }
+
+        .nav-links li {
+            display: inline;
+        }
+
+        .nav-links a {
+            color: #FFFFFF; /* White text for better contrast */
+            text-decoration: none;
+            font-size: 14px; /* Smaller text size for links */
+            font-family: 'Roboto Mono', monospace; /* Techy font */
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            position: relative;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+        }
+
+        /* Underline effect on hover */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #08bfcb; /* Light blue underline */
+            left: 0;
+            bottom: -5px;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #08bfcb; /* Light blue hover effect */
+        }
+
+        /* Home section styling */
+        .home-section {
+            background: linear-gradient(135deg, rgba(99, 241, 249, 0.8), rgba(0, 51, 160, 0.8)), 
+                        url('assets/1.jpg'); /* Gradient overlay over image */
+            background-size: cover;
+            background-position: center;
+            padding: 150px 20px 20px; /* Increase top padding to avoid overlap with navbar */
+            color: white;
+            text-align: center;
+            min-height: 100vh; /* Ensure the section takes up at least the full viewport height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center content vertically */
+            align-items: center; /* Center content horizontally */
+        }
+
+        .home-section h1 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .home-section p {
+            font-size: 18px;
+            margin-bottom: 30px; /* Increase space before buttons */
+        }
+
+        /* Button styling */
+        .cta-buttons {
+            display: flex;
+            gap: 20px; /* Space between buttons */
+        }
+
+        .cta-buttons a {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 500;
+            color: #fff;
+            background: #0033cc; /* Button color */
+            text-decoration: none;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .cta-buttons a:hover {
+            background: lightskyblue; /* Darker shade on hover */
+            transform: scale(1.05); /* Slight scale-up on hover */
+        }
+
+        /* Media query for responsiveness */
+        @media (max-width: 768px) {
+            .navbar-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 15px;
+                margin-top: 10px;
+            }
+
+            .logo img {
+                height: 60px; /* Resize logo for smaller screens */
+            }
+
+            .logo-text {
+                font-size: 20px; /* Smaller text for mobile */
+            }
+
+            .home-section {
+                padding: 100px 20px 20px; /* Adjust top padding for smaller screens */
+                text-align: center; /* Center text */
+            }
+
+            .home-section h1 {
+                font-size: 28px;
+            }
+
+            .home-section p {
+                font-size: 16px;
+            }
+
+            .cta-buttons {
+                flex-direction: column; /* Stack buttons vertically on smaller screens */
+                gap: 15px;
+            }
+        }
+        /* About Us Section Styling */
+.about-section {
+    padding: 80px 20px;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('assets/about1.jpg') no-repeat center center/cover; /* Background image with overlay */
+    color: white;
+    text-align: center;
+}
+
+.about-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-content h2 {
+    font-size: 36px; /* Smaller heading size */
+    margin-bottom: 20px;
+    color: #08bfcb; /* Brand color */
+    font-weight: 600;
+}
+
+.about-content img {
+    width: 20%; /* Make image slightly smaller */
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Add shadow to make image stand out */
+    margin-bottom: 10px;
+}
+
+.about-content .text {
+    font-size: 16px; /* Smaller font for text */
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto; /* Center text block */
+}
+
+.about-content p {
+    margin-bottom: 20px; /* Add space between paragraphs */
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+    .about-content img {
+        width: 90%; /* Adjusted size for smaller screens */
+        max-width: 400px; /* Ensure it doesn't get too large */
+        margin-bottom: 20px;
+    }
+
+    .about-content h2 {
+        font-size: 28px; /* Adjust heading size for mobile */
+    }
+
+    .about-content .text {
+        font-size: 14px; /* Smaller font size for text on mobile */
+    }
+}
+
+/* Our Mission Section */
+.mission-section {
+    padding: 80px 20px;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('assets/about1.jpg') no-repeat center center/cover; /* Background image with overlay */
+    color: white;
+    text-align: center;
+}
+
+.mission-section h2 {
+    font-size: 45px;
+    margin-bottom: 40px;
+    color: #fff;
+}
+
+.mission-points {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.mission-point {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.mission-point-number {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #08bfcb;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 5px;
+}
+
+.mission-point-text {
+    font-size: 16px;
+    color: white; /* Light text color to contrast with dark background */
+    line-height: 1.6;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    .mission-section {
+        padding: 60px 15px; /* Reduce padding for mobile */
+    }
+
+    .mission-section h2 {
+        font-size: 35px; /* Adjust heading size for mobile */
+        margin-bottom: 30px;
+    }
+
+    .mission-point {
+        gap: 15px; /* Reduce gap between number and text */
+    }
+
+    .mission-point-number {
+        width: 25px; /* Smaller square for mobile */
+        height: 25px;
+        font-size: 12px; /* Adjust font size in number box */
+    }
+
+    .mission-point-text {
+        font-size: 13px; /* Slightly smaller text for mobile */
+        line-height: 1.5; /* Adjust line height for readability */
+    }
+}
+
+/* Additional small screen adjustments for extra small devices */
+@media (max-width: 480px) {
+    .mission-section {
+        padding: 50px 10px; /* Further reduce padding for extra small screens */
+    }
+
+    .mission-section h2 {
+        font-size: 28px; /* Smaller heading size for extra small screens */
+        margin-bottom: 25px;
+    }
+
+    .mission-point-number {
+        width: 20px; /* Further adjust square size */
+        height: 20px;
+        font-size: 10px; /* Reduce font size in the square */
+    }
+
+    .mission-point-text {
+        font-size: 12px; /* Slightly smaller text */
+    }
+}
+
+.vision-section {
+    padding: 80px 20px;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('assets/about1.jpg') no-repeat center center/cover; /* Background image with overlay */
+    color: white;
+    text-align: center;
+}
+
+.vision-section h2 {
+    font-size: 45px;
+    margin-bottom: 40px;
+    color: #fff;
+}
+
+.vision-points {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.vision-point {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.vision-point-number {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #08bfcb;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 5px;
+}
+
+.vision-point-text {
+    font-size: 16px;
+    color: white; /* Light text color to contrast with dark background */
+    line-height: 1.6;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    .vision-section {
+        padding: 60px 15px; /* Reduce padding for mobile */
+    }
+
+    .vision-section h2 {
+        font-size: 35px; /* Adjust heading size for mobile */
+        margin-bottom: 30px;
+    }
+
+    .vision-point {
+        gap: 15px; /* Reduce gap between number and text */
+    }
+
+    .vision-point-number {
+        width: 25px; /* Smaller square for mobile */
+        height: 25px;
+        font-size: 12px; /* Adjust font size in number box */
+    }
+
+    .vision-point-text {
+        font-size: 13px; /* Slightly smaller text for mobile */
+        line-height: 1.5; /* Adjust line height for readability */
+    }
+}
+
+/* Additional small screen adjustments for extra small devices */
+@media (max-width: 480px) {
+    .vision-section {
+        padding: 50px 10px; /* Further reduce padding for extra small screens */
+    }
+
+    .vision-section h2 {
+        font-size: 28px; /* Smaller heading size for extra small screens */
+        margin-bottom: 25px;
+    }
+
+    .vision-point-number {
+        width: 20px; /* Further adjust square size */
+        height: 20px;
+        font-size: 10px; /* Reduce font size in the square */
+    }
+
+    .vision-point-text {
+        font-size: 12px; /* Slightly smaller text */
+    }
+}
+
+/* Services Section */
+.services-section {
+  padding: 80px 20px;
+  position: relative;
+  color: #fff;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Video Background */
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.video-background video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5; /* Optional: to soften the video intensity */
+}
+
+/* Gradient Overlay */
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(0, 0, 255, 0.7), rgba(173, 216, 230, 0.7), rgba(255, 255, 255, 0.7));
+  z-index: 0;
+}
+
+/* Container Styling */
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Section Title */
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 40px;
+}
+
+/* Section Description */
+.section-description1 {
+  text-align: center;
+  font-size: 1.2rem;
+  color: white;
+  margin-bottom: 40px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Services Container */
+.services-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Service Cards */
+.service-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Service Images */
+.service-image {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 0.5s ease;
+}
+
+#cybersecurity-img {
+  background-image: url('assets/3.jpg'); /* replace with your image path */
+}
+
+#cloud-computing-img {
+  background-image: url('assets/4.jpg'); /* replace with your image path */
+}
+
+#web-development-img {
+  background-image: url('assets/10.png'); /* replace with your image path */
+}
+
+#mobile-development-img {
+  background-image: url('assets/5.jpg'); /* replace with your image path */
+}
+
+.service-title {
+  font-size: 1.5rem;
+  color: #08bfcb;
+  margin: 20px 0 10px;
+}
+
+.service-description {
+  font-size: 1rem;
+  color: black;
+  margin: 0 20px 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section-description1 {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+  }
+
+  .service-card {
+    width: 280px;
+  }
+
+  .service-image {
+    height: 180px;
+  }
+}
+
+@media (max-width: 992px) {
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .section-description1 {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+
+  .services-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .service-card {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .service-image {
+    height: 160px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .section-description1 {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+  }
+
+  .service-card {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .service-image {
+    height: 140px;
+  }
+}
+
+@media (max-width: 576px) {
+  .section-title {
+    font-size: 1.4rem;
+  }
+
+  .section-description1 {
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+  }
+
+  .service-card {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .service-image {
+    height: 120px;
+  }
+}
+
+.help-hero {
+      position: relative;
+      background: linear-gradient(180deg, rgba(0, 0, 255, 0.7), rgba(173, 216, 230, 0.7), rgba(255, 255, 255, 0.7)), url('assets/help.jpg') center/cover no-repeat;
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+
+    .help-hero h1 {
+      font-size: 3rem;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    }
+
+    .help-content {
+        padding: 80px 20px;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('assets/about1.jpg') no-repeat center center/cover; /* Background image with overlay */
+    color: white;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .help-content img {
+    width: 20%; /* Make image slightly smaller */
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Add shadow to make image stand out */
+    margin-bottom: 10px;
+}
+
+
+    .help-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #00bcd4;
+    }
+
+    .help-content p {
+        font-size: 16px;
+    color: white; /* Light text color to contrast with dark background */
+    line-height: 1.6;
+    }
+
+    .help-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .help-buttons .btn {
+      padding: 15px 30px;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-primary {
+      background-color: #00bcd4;
+      color: white;
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #008c9e;
+    }
+
+    .btn-secondary {
+      background-color: #303f9f;
+      color: #f5f5f5;
+    }
+
+    .btn-secondary:hover {
+      background-color: #1e2b70;
+    }
+
+    @media (max-width: 768px) {
+        .help-content img {
+        width: 90%; /* Adjusted size for smaller screens */
+        max-width: 400px; /* Ensure it doesn't get too large */
+        margin-bottom: 20px;
+    }
+      .help-hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .help-content h2 {
+        font-size: 2rem;
+      }
+    }
+
+    .contact-section {
+        padding: 80px 20px;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('assets/contact.png') no-repeat center center/cover; /* Background image with overlay */
+    color: white;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 50px 20px;
+    }
+
+    .contact-form {
+      flex: 1;
+      max-width: 45%;
+      
+      padding: 30px;
+      border-radius: 10px;
+    }
+
+    .contact-form h2 {
+      color: white;
+      margin-bottom: 20px;
+      font-size: 1.9rem;
+      text-align: center;
+    }
+
+    .contact-form label {
+      display: block;
+      margin-bottom: 8px;
+      color: #f5f5f5;
+      font-size: 1rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 15px; /* Increased padding for larger input fields */
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 8px; /* Softer corners for modern look */
+      background-color: #ffffff; /* White background for input fields */
+      color: black; /* Dark text inside the fields */
+      font-size: 1.2rem; /* Larger font for the input fields */
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: #999;
+      font-size: 1rem; /* Advanced look for placeholders */
+    }
+
+    .contact-form button {
+      padding: 15px 25px; /* Larger button */
+      background-color: #00bcd4;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #008c9e;
+    }
+
+    .contact-details {
+      flex: 1;
+      max-width: 45%;
+      color: white;
+      padding: 30px;
+    }
+
+    .contact-details h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #00bcd4;
+      text-align: center;
+    }
+
+    .contact-details p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .contact-item i {
+      font-size: 1.8rem;
+      background-color: #00bcd4;
+      color: white;
+      padding: 10px;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+
+    .contact-item span {
+      font-size: 1rem;
+      color: white;
+    }
+
+        /* WhatsApp icon */
+        .contact-item a {
+      display: flex;
+      align-items: center;
+      color: #00bcd4;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .contact-section {
+        flex-direction: column;
+      }
+
+      .contact-form, .contact-details {
+        max-width: 100%;
+        margin-bottom: 30px;
+      }
+
+      .contact-form h2, .contact-details h2 {
+        font-size: 1.5rem;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        font-size: 1.1rem;
+      }
+
+      .contact-form button {
+        font-size: 1.1rem;
+      }
+    }
+
+
+    .map-section {
+    width: 100%;
+    height: 400px; /* Adjust height as needed */
+    overflow: hidden;
+  }
+
+  .map-content {
+    width: 100%;
+    height: 100%;
+  }
+
+  iframe {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Footer Section Styles */
+.footer-section {
+  position: relative;
+  
+  background-size: cover;
+  background-position: center;
+  padding: 60px 20px;
+  color: #fff;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footer-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #0033cc, #0066ff);
+  z-index: 1;
+}
+
+.footer-content {
+  position: relative;
+  z-index: 2;
+}
+
+.footer-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer-column {
+  width: 22%;
+  margin-bottom: 20px;
+}
+
+.footer-column h2 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.footer-column p,
+.footer-column ul,
+.footer-column li {
+  font-size: 14px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 10px;
+}
+
+.footer-column ul li i {
+  margin-right: 10px;
+}
+
+.footer-column ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-column ul li a:hover {
+    color: #08bfcb;
+}
+
+.social-icons a {
+  color: #fff;
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+.social-icons a:hover {
+  color: #ff5722;
+}
+
+/* Footer Bottom Styles */
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 20px;
+}
+
+.footer-bottom p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-bottom p a {
+  color: #ff5722;
+  text-decoration: none;
+}
+.footer-column.logo {
+  text-align: center; /* Center the logo */
+}
+
+.footer-column.logo img {
+  max-width: 150px; /* Adjust the size of the logo as needed */
+  height: auto;
+}
+
+.footer-bottom p a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-column {
+    width: 45%;
+    margin-bottom: 30px;
+  }
+
+  .footer-column.logo img {
+    max-width: 120px; /* Smaller logo size on tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-column {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .footer-section {
+    text-align: center;
+  }
+
+  .footer-column.logo img {
+    max-width: 100px; /* Smaller logo size on mobile */
+  }
+
+  .social-icons a {
+    margin-right: 10px;
+    font-size: 18px;
+  }
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-content">
+                <div class="logo-container">
+                    <a href="#" class="logo">
+                        <img src="assets/2.png" alt="Buffalo Cyber Security Logo"> <!-- Ensure this is a blue-colored logo -->
+                    </a>
+                    <span class="logo-text">Buffalo Cyber Security</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home-section">Home</a></li>
+                    <li><a href="#about-section">About Us</a></li>
+                    <li><a href="#services-section">Services</a></li>
+                    <li><a href="#contact-section">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home-section">
+    <section class="home-section">
+        <h1>BUFFALO CYBER SECURITY</h1>
+        <p>Empowering your digital future with robust cybersecurity, innovative app development, and seamless cloud migration.</p>
+        <div class="cta-buttons">
+            <a href="#about-section">Get Started</a>
+        </div>
+    </section>
+</section>
+
+    <!-- About Us Section -->
+    <section id="about-section">
+    <section class="about-section">
+        <div class="about-content">
+            <img src="assets/2.png" alt="Cybersecurity Image"> <!-- Replace with a relevant image -->
+            <div class="text">
+                <h2>About Us</h2>
+                <p>
+                    Buffalo Cyber Security, founded in 2022 by Bessy Mosomane, specializes in providing top-tier digital solutions to modern businesses. Our expertise covers cybersecurity, custom app development, and cloud migration, ensuring our clients stay competitive and secure in an evolving digital landscape.
+                </p>
+                <p>
+                    We deliver comprehensive protection against cyber threats, including malware, phishing, and data breaches. Our cutting-edge defenses are tailored to each business’s needs, offering resilience and peace of mind.
+                </p>
+                <p>
+                    Our custom-built mobile apps enhance digital presence and customer engagement, providing seamless and user-friendly experiences that drive brand loyalty and growth.
+                </p>
+                <p>
+                    Additionally, we facilitate smooth cloud migrations to AWS, improving efficiency and scalability while minimizing disruption.
+                </p>
+                <p>
+                    At Buffalo Cyber Security, we are committed to innovation and excellence, offering tailored solutions that drive growth, security, and sustainability. Trust us to be your partner in navigating the digital era.
+                </p>
+                
+            </div>
+        </div>
+    </section>
+</section>
+
+    <!-- Our Mission Section -->
+    <section class="mission-section">
+        <h2>Our Mission</h2>
+        <div class="mission-points">
+            <div class="mission-point">
+                <div class="mission-point-number">1</div>
+                <p class="mission-point-text">To provide top-tier cybersecurity solutions that protect our clients' digital assets and ensure their peace of mind in an ever-evolving threat landscape.</p>
+            </div>
+            <div class="mission-point">
+                <div class="mission-point-number">2</div>
+                <p class="mission-point-text">To develop innovative and user-friendly applications that not only meet the business needs but also enhance the user experience and drive digital transformation.</p>
+            </div>
+            <div class="mission-point">
+                <div class="mission-point-number">3</div>
+                <p class="mission-point-text">To empower businesses with seamless cloud migration services that improve operational efficiency, scalability, and security.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="vision-section">
+        <h2>Our Vision</h2>
+        <div class="vision-points">
+            <div class="vision-point">
+                <div class="vision-point-number">1</div>
+                <div class="vision-point-text">
+                    To lead the industry with innovative cybersecurity solutions, constantly evolving to counter emerging threats.
+                </div>
+            </div>
+            <div class="vision-point">
+                <div class="vision-point-number">2</div>
+                <div class="vision-point-text">
+                    To empower businesses worldwide by providing robust digital protection, ensuring secure growth and prosperity.
+                </div>
+            </div>
+            <div class="vision-point">
+                <div class="vision-point-number">3</div>
+                <div class="vision-point-text">
+                    To build a future where cybersecurity is seamlessly integrated into everyday operations, fostering trust in the digital ecosystem.
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="services-section">
+    <section class="services-section">
+        <div class="video-background">
+          <video autoplay muted loop>
+            <source src="Assets/Video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      
+        <div class="gradient-overlay"></div>
+      
+        <div class="container">
+          <h2 class="section-title">We Have Amazing Services!</h2>
+          <p class="section-description1">Our range of services is designed to deliver cutting-edge solutions for your business, ensuring security, efficiency, and innovation in every project.</p>
+          <br>
+          <div class="services-container">
+            <br>
+            <div class="service-card">
+              <div class="service-image" id="cybersecurity-img"></div>
+              <h3 class="service-title">Cybersecurity</h3>
+              <p class="service-description">Protect your digital assets with our top-notch cybersecurity solutions. Stay ahead of threats with cutting-edge technology and expert guidance designed to safeguard your business around the clock.</p>
+            </div>
+      
+            <div class="service-card">
+              <div class="service-image" id="cloud-computing-img"></div>
+              <h3 class="service-title">Cloud Computing</h3>
+              <p class="service-description">Scalable and efficient cloud solutions tailored to your needs. Empower your business with secure, flexible infrastructure that grows as you do.</p>
+            </div>
+      
+            <div class="service-card">
+              <div class="service-image" id="web-development-img"></div>
+              <h3 class="service-title">Web Development</h3>
+              <p class="service-description">Create a stunning online presence with our web development services. Elevate your brand with innovative designs and seamless functionality that captivate your audience and drive results.</p>
+            </div>
+      
+            <div class="service-card">
+              <div class="service-image" id="mobile-development-img"></div>
+              <h3 class="service-title">Mobile Development</h3>
+              <p class="service-description">Innovative mobile applications that engage and convert. Leverage cutting-edge technology to deliver exceptional user experiences and achieve your business goals.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section> 
+      
+    <section class="help-hero">
+        <h1>Need Help?</h1>
+      </section>
+    
+      <section class="help-content">
+        <img src="assets/2.png" alt="Cybersecurity Image"> <!-- Replace with a relevant image -->
+        <h2>We Are Here to Help You</h2>
+        <p>If you're unsure where to begin or need guidance, don't hesitate to reach out.</p>
+        <p>We're available to provide the assistance you need.</p>
+        <br>
+    
+        <div class="help-buttons">
+            <a href="#contact-section" class="btn btn-primary">Contact Us</a>
+        </div>
+      </section>
+
+      <section id="contact-section">
+        <section class="contact-section">
+          <!-- Contact Form (Left) -->
+          <div class="contact-form">
+            <h2>Send Us a Message</h2>
+            <br>
+            <form id="contactForm" action="https://formspree.io/f/manwkpgn" method="POST">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Enter your name" required>
+              
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="Enter your email" required>
+              
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Enter your message" rows="5" required></textarea>
+              
+              <!-- Hidden field for Formspree reply-to email -->
+              <input type="hidden" name="_replyto" value="bmosomane6@gmail.com">
+              
+              <button type="submit">Submit</button>
+            </form>
+      
+            <!-- Success Message -->
+            <p id="successMessage" style="display:none; color: green;">Message sent successfully!</p>
+          </div>
+      
+      <script>
+        // Simple success message handler for form submission
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+          event.preventDefault(); // Prevent default form submission behavior
+      
+          // Fetch API to handle the form submission via Formspree
+          const formData = new FormData(this);
+          fetch(this.action, {
+            method: "POST",
+            body: formData,
+            headers: {
+              'Accept': 'application/json'
+            }
+          }).then(function(response) {
+            if (response.ok) {
+              document.getElementById("successMessage").style.display = "block";
+              document.getElementById("contactForm").reset(); // Clear the form
+            } else {
+              alert("Message sending failed. Please try again.");
+            }
+          }).catch(function(error) {
+            alert("There was an error submitting the form.");
+            console.log(error);
+          });
+        });
+      </script>
+      
+    
+        <!-- Contact Details (Right) -->
+        <div class="contact-details">
+          <h2>Contact Us</h2>
+          <p>We are available via phone, email, or visit us at our office. Feel free to reach out anytime.</p>
+          
+          <!-- Phone -->
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <span>+27 79 299 1870</span>
+          </div>
+          
+          <!-- Email -->
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>bmosomane6@gmail.com</span>
+          </div>
+          
+          <!-- Address -->
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>96 Harred Rd, Aureus, Randfontein, 1760</span>
+          </div>
+        
+
+
+        <!-- WhatsApp -->
+      <div class="contact-item">
+        <a href="https://wa.me/+27792991870" target="_blank">
+          <i class="fab fa-whatsapp"></i>
+          <span>Chat with us on WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </section>
+  </section>
+
+    <section class="map-section">
+        <div class="map-content">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.3188625500934!2d27.695865699999995!3d-26.189736099999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e95bd7eaeb1372b%3A0xd1768c42333b275c!2s96%20Harred%20Rd%2C%20Aureus%2C%20Randfontein%2C%201760!5e1!3m2!1sen!2sza!4v1725608659398!5m2!1sen!2sza" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Advanced Footer Section -->
+<footer class="footer-section">
+    <div class="footer-overlay"></div>
+    <div class="footer-content">
+      <!-- Footer Columns -->
+      <div class="footer-columns">
+        <!-- About Us Section -->
+        <div class="footer-column logo">
+            <a href="#">
+              <img src="Assets/2.png" alt="Company Logo">
+            </a>
+          </div>
+          
+  
+        <!-- Quick Links Section -->
+        <div class="footer-column links">
+          <h2>Quick Links</h2>
+          <ul>
+            <li><a href="#home-section">Home</a></li>
+            <li><a href="#about-section">About Us</a></li>
+            <li><a href="#services-section">Services</a></li>
+            <li><a href="#contact-section">Contact</a></li>
+          </ul>
+        </div>
+  
+        <!-- Contact Section -->
+        <div class="footer-column contact">
+          <h2>Contact Us</h2>
+          <ul>
+            <li><i class="fas fa-map-marker-alt"></i> 96 Harred Rd, Aureus, Randfontein, 1760</li>
+            <li><i class="fas fa-phone"></i> +27 79 299 1870</li>
+            <li><i class="fas fa-envelope"></i> bmosomane6@gmail.com</li>
+          </ul>
+        </div>
+  
+        <!-- Social Media Section -->
+        <div class="footer-column social">
+          
+          <div class="social-icons">
+
+          </div>
+        </div>
+      </div>
+  
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>&copy; 2024 Buffalo Cyber Security. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+  
+
+
+      <!-- Font Awesome for Icons -->
+      <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const images = {
+            cybersecurity: 'assets/3.jpg',
+            cloudComputing: 'assets/4.jpg',
+            webDevelopment: 'assets/10.png',
+            mobileDevelopment: 'assets/5.jpg',
+          };
+      
+          setInterval(() => {
+            document.getElementById('3').style.backgroundImage = `url(${images.cybersecurity})`;
+            document.getElementById('4').style.backgroundImage = `url(${images.cloudComputing})`;
+            document.getElementById('10').style.backgroundImage = `url(${images.webDevelopment})`;
+            document.getElementById('5').style.backgroundImage = `url(${images.mobileDevelopment})`;
+          }, 5000); // Change images every 5 seconds
+        });
+      </script>
+   
+</body>
+</html>
